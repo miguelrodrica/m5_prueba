@@ -1,0 +1,27 @@
+PROYECTO: Prueba de Desarrollo M5 - Analítica de Datos
+AUTOR: Miguel Angel Rodriguez Cano
+FECHA: 20 de abril de 2026
+
+REPOSITORIO
+GitHub: https://github.com/miguelrodrica/m5_prueba
+
+DESCRIPCIÓN
+Solución analítica completa que integra datos de ventas,
+clientes, productos y geografía para responder preguntas
+de negocio del caso Emausoft.
+
+FUENTES DE DATOS
+- Ventas: https://www.kaggle.com/datasets/kyanyoga/sample-sales-data
+- Clientes: https://randomuser.me/api/?results=100
+- Regiones: https://restcountries.com/v3.1/all
+
+CÓMO EJECUTAR
+1. Clonar el repositorio
+2. uv venv .venv
+3. source .venv/bin/activate
+4. uv sync
+5. python scripts/01_sales_eda.py
+6. python scripts/02_customers.py
+7. python scripts/03_regions.py
+8. python scripts/04_products.py
+9. python scripts/05_integration.py

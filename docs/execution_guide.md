@@ -30,16 +30,12 @@ prueba_m5/
 │   ├── 03_regions.py               (Fase 3)
 │   ├── 04_products.py              (Fase 4)
 │   ├── 05_integration.py           (Fase 5)
-│   ├── 06_dashboard.py             (Fase 6)
 │   ├── 07_postgres_schema.sql      (Subetapa PostgreSQL)
 │   └── 08_postgres_load.sql        (Subetapa PostgreSQL)
 ├── docs/
 │   ├── 01_sales_eda.md
 │   ├── design_decisions.md
 │   └── business_recommendations.md
-├── output/
-│   ├── dashboard.html          (generado en Fase 6)
-│   └── plots/                  (generado en Fase 6)
 └── pyproject.toml
 ```
 
@@ -177,25 +173,6 @@ Esta subetapa es crítica y debe ejecutarse dentro de la Fase 5, antes del dashb
 	- nulos en claves críticas = 0
 
 > Nota: El CSV `fact_table.csv` sirve como staging/intermedio. El entregable de modelado debe existir también en PostgreSQL.
-
----
-
-### FASE 6: Crear Dashboard
-**Archivo:** `scripts/06_dashboard.py`
-
-```bash
-python scripts/06_dashboard.py
-```
-
-**Salida:** 
-- `output/dashboard.html` (interactivo)
-- `output/plots/dashboard_static.png`
-
-**Qué hace:**
-- Analiza las 8 preguntas de negocio
-- Crea visualizaciones con Plotly (interactivas)
-- Crea gráficos estáticos con Matplotlib
-- Exporta dashboard HTML
 
 ---
 

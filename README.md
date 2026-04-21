@@ -77,7 +77,6 @@ prueba_m5/
 │   ├── 03_regions.py               # Phase 3: geography from API
 │   ├── 04_products.py              # Phase 4: products table
 │   ├── 05_integration.py           # Phase 5: integration and fact table
-│   ├── 06_dashboard.py             # Phase 6: dashboard and charts
 │   ├── 07_postgres_schema.sql      # Star model DDL
 │   └── 08_postgres_load.sql        # Load data to PostgreSQL
 │
@@ -86,9 +85,6 @@ prueba_m5/
 │   ├── 01_sales_eda.md             # EDA findings
 │   ├── design_decisions.md         # Technical decisions and reasons
 │   └── business_recommendations.md # Business recommendations
-│
-├── output/
-│   └── plots/                      # Charts made by the dashboard
 │
 ├── pyproject.toml
 └── README.md
@@ -127,14 +123,6 @@ python scripts/05_integration.py
 ```
 
 Each script runs alone and saves files in `data/processed/`.
-
-### Dashboard
-
-```bash
-python scripts/06_dashboard.py
-```
-
-Charts are saved in `output/plots/`.
 
 ### PostgreSQL step (optional)
 

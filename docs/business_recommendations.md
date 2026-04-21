@@ -123,7 +123,6 @@ Documento de síntesis con recomendaciones y decisiones estratégicas basadas en
 
 #### Acciones Estratégicas (6+ meses)
 1. Consolidar operación analítica sobre modelo estrella en PostgreSQL.
-2. Implementar monitoreo continuo de KPIs con dashboard y alertas.
 
 ---
 

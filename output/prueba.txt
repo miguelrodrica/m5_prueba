@@ -1,0 +1,267 @@
+                   PRUEBA DE DESEMPEÑO
+Construcción de una Solución Analítica End-to-End
+
+Caso: Emausoft
+
+1. Contexto del negocio
+Emausoft es una empresa de tecnología que desarrolla soluciones SaaS orientadas a la
+gestión comercial de pequeñas y medianas empresas en Latinoamérica. Su plataforma
+permite gestionar información relacionada con ventas, productos y clientes.
+
+En los últimos meses, la organización ha identificado múltiples dificultades en el uso de
+sus datos:
+
+   •   Información fragmentada en diferentes fuentes
+   •   Inconsistencias en formatos y estructuras
+   •   Falta de relaciones claras entre datasets
+   •   Dificultad para responder preguntas del negocio
+
+Actualmente, el equipo directivo no cuenta con una solución que permita interpretar los
+datos de forma clara y tomar decisiones basadas en información confiable.
+
+En este contexto, se requiere construir una solución analítica completa que permita
+transformar datos en información útil.
+
+
+2. Objetivo de la prueba
+El objetivo de esta prueba es evaluar la capacidad del coder para:
+
+   •   Comprender y explorar datos
+   •   Integrar múltiples fuentes (archivos y APIs)
+   •   Limpiar y transformar información
+   •   Definir una estructura analítica coherente
+   •   Construir un dashboard
+   •   Comunicar hallazgos de forma clara
+
+Importante:
+ No existe una única solución correcta. Se evaluará el criterio técnico, la lógica aplicada y
+la capacidad de toma de decisiones.
+
+
+3. Fuentes de datos
+El coder deberá trabajar con las siguientes fuentes:
+
+3.1 Dataset de ventas
+
+Fuente:
+https://www.kaggle.com/datasets/kyanyoga/sample-sales-data
+
+Archivo:
+sales_data_sample.csv
+
+Este dataset contiene información transaccional de ventas.
+
+Actividades esperadas:
+
+   •   Analizar la estructura del dataset
+   •   Identificar problemas de calidad (nulos, formatos, duplicados)
+   •   Seleccionar las columnas relevantes
+   •   Preparar el dataset para análisis
+
+Columnas relevantes (referenciales):
+
+   •   orderNumber
+   •   orderDate
+   •   productCode
+   •   quantityOrdered
+   •   priceEach
+   •   sales
+   •   country
+
+3.2 Dataset de clientes (generado desde API)
+
+Fuente:
+https://randomuser.me/api/?results=100
+
+Requerimiento obligatorio:
+
+El coder debe:
+
+   •   Consumir la API utilizando Python
+   •   Generar un dataset estructurado de clientes
+   •   Crear un identificador numérico (cliente_id)
+   •   Definir cómo asignar estos clientes al dataset de ventas
+
+Columnas esperadas:
+
+   •   cliente_id
+   •   nombre
+   •   ciudad
+   •   país
+
+Nota importante:
+
+El dataset de ventas no contiene clientes explícitos, por lo que el coder deberá definir una
+lógica de asignación (por ejemplo: distribución aleatoria, asignación por país, etc.).
+
+3.3 Dataset de regiones (API pública)
+
+Fuente:
+https://restcountries.com/v3.1/all
+Uso esperado:
+
+   •   Enriquecer los datos con:
+          o Continente
+          o Región
+          o Información geográfica
+
+Actividades esperadas:
+
+   •   Normalizar nombres de países
+   •   Relacionar esta información con ventas o clientes
+
+3.4 Dataset de productos (construcción obligatoria)
+
+A diferencia de otras fuentes, el dataset de productos no será consumido directamente,
+sino que deberá ser construido por el coder a partir del dataset de ventas.
+
+Requerimiento obligatorio
+
+El coder deberá generar un dataset de productos con la siguiente estructura:
+
+     columna              descripción
+ producto_id     Identificador numérico único
+                 Nombre o código del
+ producto_nombre
+                 producto
+ categoria       Categoría (si aplica)
+
+
+
+Condición obligatoria
+
+El coder deberá:
+
+   •   Crear una relación entre:
+          o ventas.producto_id
+          o productos.producto_id
+   •   Transformar la columna original (productCode u otra) en un identificador numérico
+Ejemplo conceptual
+
+ producto_nombre producto_id
+ S10_1678        1
+ S10_1949        2
+
+
+4. Requerimiento clave de integración
+El coder deberá construir una solución donde:
+
+   •   Las ventas estén relacionadas con productos mediante producto_id
+   •   Las ventas estén relacionadas con clientes mediante cliente_id
+   •   Los datos estén enriquecidos con información geográfica
+
+No se define una única forma de lograrlo.
+Se evaluará la coherencia y consistencia de la solución.
+
+
+5. Preguntas de negocio
+El dashboard debe permitir responder como mínimo:
+
+5.1 Nivel descriptivo
+
+   1. ¿Cómo han evolucionado las ventas en el tiempo?
+   2. ¿Qué países o regiones generan más ingresos?
+   3. ¿Qué productos tienen mejor desempeño?
+
+5.2 Nivel diagnóstico
+
+   4. ¿Qué regiones presentan bajo rendimiento?
+   5. ¿Qué productos tienen menor impacto en ventas?
+
+5.3 Nivel analítico
+
+   6. ¿Qué tipo de clientes generan mayor valor?
+   7. ¿Existe alguna relación entre ubicación y comportamiento de compra?
+
+5.4 Nivel de decisión
+
+   8. ¿Qué acciones recomendarías al negocio con base en los datos?
+
+
+6. Alcance técnico
+El coder deberá abordar el problema considerando:
+
+6.1 Exploración de datos (EDA)
+
+   •   Comprender los datos
+   •   Identificar problemas
+   •   Analizar estructura y tipos
+
+6.2 Limpieza y transformación
+
+   •   Manejo de valores nulos
+   •   Corrección de formatos
+   •   Eliminación o tratamiento de duplicados
+   •   Creación de métricas necesarias
+
+6.3 Integración de datos
+
+   •   Unificación de fuentes
+   •   Resolución de inconsistencias
+   •   Definición de relaciones
+
+6.4 Estructuración de la información
+
+El coder deberá decidir:
+
+   •   Cómo organizar los datos
+   •   Qué estructura utilizar
+   •   Cómo facilitar el análisis
+
+No se exige un modelo específico.
+
+6.5 Procesamiento
+
+Se espera el uso de:
+
+   •   Python
+   •   Pandas
+   •   Consumo de APIs
+
+6.6 Visualización
+
+El dashboard debe:
+
+   •   Ser claro
+   •   Permitir interpretación rápida
+   •   Responder las preguntas planteadas
+
+
+
+6.7 Comunicación (Storytelling)
+
+Se evaluará:
+
+   •   Claridad
+   •   Orden lógico
+   •   Capacidad de síntesis
+   •   Enfoque en decisiones
+
+
+7. Entregables
+El coder deberá entregar:
+7.1 Dashboard
+
+   •   Funcional
+   •   Enfocado en negocio
+
+7.2 Código o proceso
+
+   •   Scripts o notebooks
+   •   Integración de APIs
+   •   Transformaciones realizadas
+
+7.3 Explicación de la solución
+
+Debe incluir:
+
+   •   Problemas encontrados
+   •   Decisiones tomadas
+   •   Cómo estructuró la información
+   •   Justificación del enfoque
+
+7.4 Representación del modelo (opcional)
+
+   •   Diagrama o explicación visual
+   •   Estructura de relaciones
+

@@ -1,16 +1,37 @@
--- Fase 5 PostgreSQL: carga del esquema estrella desde CSV
--- Ejecutar desde la raiz del proyecto para que la ruta del CSV sea valida.
+-- Fase 5 PostgreSQL: carga del esquema estrella desde CSV (DBeaver)
+-- Ejecutar conectado a la base miguel_prueba.
 
 BEGIN;
 
 TRUNCATE TABLE analytics.fact_sales RESTART IDENTITY;
-TRUNCATE TABLE analytics.dim_date RESTART IDENTITY CASCADE;
-TRUNCATE TABLE analytics.dim_region RESTART IDENTITY CASCADE;
-TRUNCATE TABLE analytics.dim_product RESTART IDENTITY CASCADE;
-TRUNCATE TABLE analytics.dim_customer RESTART IDENTITY CASCADE;
+TRUNCATE TABLE analytics.dim_date;
+TRUNCATE TABLE analytics.dim_region RESTART IDENTITY;
+TRUNCATE TABLE analytics.dim_product;
+TRUNCATE TABLE analytics.dim_customer;
 TRUNCATE TABLE analytics.stg_fact_sales;
 
-\copy analytics.stg_fact_sales FROM 'data/analytical/fact_table.csv' WITH (FORMAT csv, HEADER true)
+COPY analytics.stg_fact_sales (
+    order_number,
+    order_date,
+    product_code,
+    product_line,
+    quantity_ordered,
+    price_each,
+    sales,
+    country,
+    year,
+    month,
+    quarter,
+    continent,
+    region,
+    customer_id,
+    product_id,
+    customer_name,
+    customer_city,
+    customer_country
+)
+FROM '/home/miguel/Documentos/prueba_m5/data/analytical/fact_table.csv'
+WITH (FORMAT csv, HEADER true);
 
 INSERT INTO analytics.dim_customer (customer_id, customer_name, customer_city, customer_country)
 SELECT DISTINCT
